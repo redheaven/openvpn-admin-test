@@ -121,12 +121,6 @@ iptables -I FORWARD -i tun0 -j ACCEPT
 iptables -I FORWARD -o tun0 -j ACCEPT
 iptables -I OUTPUT -o tun0 -j ACCEPT
 
-iptables -A FORWARD -i tun0 -o $primary_nic -j ACCEPT
-iptables -t nat -A POSTROUTING -o $primary_nic -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o $primary_nic -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 10.8.0.2/24 -o $primary_nic -j MASQUERADE
-
-
 printf "\n################## Setup MySQL database ##################\n"
 
 sleep 10s
